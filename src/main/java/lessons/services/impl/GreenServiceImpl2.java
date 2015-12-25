@@ -4,10 +4,10 @@ import lessons.services.GreetingService;
 import org.springframework.stereotype.Component;
 
 @Component
-public class GreetingServiceImpl implements GreetingService {
+public class GreenServiceImpl2 implements GreetingService {
 
     @Override
     public String sayGreeting() {
-        return "Greeting, user!";
+        return "YYYYYYYYYYYY";
     }
 }
