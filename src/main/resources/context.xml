@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- bean definitions here -->
+    <!--  <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
+    <!--  or add name spaces 'annotation-config' -->
+    <context:annotation-config/>
 
+    <bean class="com.malex.services.impl.QuoterImpl" id="quoterImpl">
+        <property name="message" value="Test message"/>
+    </bean>
+
+    <bean class="com.malex.postProcessor.InjectRandomIntAnnotationsBeanPostProcessor"/>
 </beans>
