@@ -1,6 +1,7 @@
 package com.malex.services.impl;
 
 import com.malex.annotations.InjectRandomInt;
+import com.malex.annotations.Profiling;
 import com.malex.services.Quoter;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,6 +13,7 @@ import java.util.stream.IntStream;
 @Log4j
 @Getter
 @Setter
+@Profiling
 public class QuoterImpl implements Quoter {
 
     @InjectRandomInt(min = 1, max = 7)

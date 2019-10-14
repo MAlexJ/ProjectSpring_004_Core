@@ -12,11 +12,15 @@ import java.util.function.Predicate;
 
 public class InjectRandomIntAnnotationsBeanPostProcessor implements BeanPostProcessor {
 
+    private Predicate<Field> hasInjectRandomIntAnnotation() {
+        return field -> Objects.nonNull(field.getAnnotation(InjectRandomInt.class));
+    }
+
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) {
         Field[] fields = bean.getClass().getDeclaredFields();
         Arrays.stream(fields)
-                .filter(hasAnnotationField())
+                .filter(hasInjectRandomIntAnnotation())
                 .forEach(field -> {
                     InjectRandomInt annotation = field.getAnnotation(InjectRandomInt.class);
                     int min = annotation.min();
@@ -28,12 +32,8 @@ public class InjectRandomIntAnnotationsBeanPostProcessor implements BeanPostProc
         return bean;
     }
 
-    private Predicate<Field> hasAnnotationField() {
-        return field -> Objects.nonNull(field.getAnnotation(InjectRandomInt.class));
-    }
-
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) {
-        return null;
+        return bean;
     }
 }
