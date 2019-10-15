@@ -1,7 +1,8 @@
 package com.malex.controller;
 
-
-public interface ProfilerControllerMBean {
+public interface ProfilerControllerMXBean {
 
     void setEnabled(boolean enabled);
+
+    boolean isEnabled();
 }

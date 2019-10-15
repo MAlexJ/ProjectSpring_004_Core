@@ -1,6 +1,5 @@
 package com.malex.postProcessor;
 
-
 import com.malex.annotations.Profiling;
 import com.malex.controller.impl.ProfilerController;
 import lombok.extern.log4j.Log4j;
@@ -22,9 +21,13 @@ public class ProfilingAnnotationsBeanPostProcessor implements BeanPostProcessor 
     private Map<String, Class> map = new HashMap<>();
     private ProfilerController controller = new ProfilerController();
 
+    /**
+     * Issue with MBean see https://stackoverflow.com/questions/25308744/creating-mbean-in-java
+     */
     public ProfilingAnnotationsBeanPostProcessor() throws Exception {
-//        MBeanServer beanServer = ManagementFactory.getPlatformMBeanServer();
-//        beanServer.registerMBean(controller, new ObjectName("profiling", "name", "controller"));
+        MBeanServer beanServer = ManagementFactory.getPlatformMBeanServer();
+        ObjectName objectName = new ObjectName("com.malex.controller.impl:type=basic,name=controller");
+        beanServer.registerMBean(controller, objectName);
     }
 
     @Override

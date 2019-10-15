@@ -1,15 +1,18 @@
 package com.malex.controller.impl;
 
-import com.malex.controller.ProfilerControllerMBean;
-import lombok.Getter;
+import com.malex.controller.ProfilerControllerMXBean;
 
-@Getter
-public class ProfilerController implements ProfilerControllerMBean {
+public class ProfilerController implements ProfilerControllerMXBean {
 
     private boolean enabled;
 
     @Override
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return enabled;
     }
 }
