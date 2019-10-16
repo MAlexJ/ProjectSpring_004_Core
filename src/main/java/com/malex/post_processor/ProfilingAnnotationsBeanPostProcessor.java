@@ -1,4 +1,4 @@
-package com.malex.postProcessor;
+package com.malex.post_processor;
 
 import com.malex.annotations.Profiling;
 import com.malex.controller.impl.ProfilerController;

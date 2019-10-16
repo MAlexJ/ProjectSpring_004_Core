@@ -1,4 +1,4 @@
-package com.malex.postProcessor;
+package com.malex.post_processor;
 
 import com.malex.annotations.InjectRandomInt;
 import org.springframework.beans.factory.config.BeanPostProcessor;

@@ -14,7 +14,7 @@
 
     <!--<bean class="com.malex.services.impl.SecondQuoterImpl" id="secondQuoterImpl"/>-->
 
-    <bean class="com.malex.postProcessor.InjectRandomIntAnnotationsBeanPostProcessor"/>
+    <bean class="com.malex.post_processor.InjectRandomIntAnnotationsBeanPostProcessor"/>
 
-    <bean class="com.malex.postProcessor.ProfilingAnnotationsBeanPostProcessor"/>
+    <bean class="com.malex.post_processor.ProfilingAnnotationsBeanPostProcessor"/>
 </beans>
